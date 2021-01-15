@@ -1,3 +1,11 @@
+
+<h1>Quizz Game hanaovan'ny mpianatry ISPM demos Builder Pattern</h1>
+
+<h3>Membres du groupe:</h3>
+Andrianarivo Nirintsoa David Stanley ISAIA5 n4
+Ranaivo Mialiharisoa Murielle IGGL5
+Rovasoa Rakotoniaina IGGL5
+
 # quizzgame
 
 ## Project setup
@@ -19,6 +27,3 @@ yarn build
 ```
 yarn lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
