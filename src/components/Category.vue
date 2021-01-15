@@ -1,33 +1,50 @@
 <template>
-  <div>
-    <h1>{{ categoryTitle }}</h1>
-    <button @click="test">Go</button>
+  <div class="column">
+    <div class="card">
+      <header class="card-header">
+        <p class="card-header-title">
+          {{ categoryTitle }}
+        </p>
+      </header>
+      <footer class="card-footer">
+        <a
+          class="button is-info card-footer-item"
+          v-bind:class="{ 'is-loading': loading }"
+          @click="go"
+          >Go</a
+        >
+      </footer>
+    </div>
   </div>
 </template>
 
 <script>
-import PathBuilder from '@/models/PathBuilder'
-
 export default {
   props: {
     categoryTitle: String,
-    categoryValue: Number
+    path: {},
   },
-  data ()
-  {
+  data() {
     return {
-      path: ""
-    }
+      loading: false
+    };
   },
   methods: {
-    test () {
-      this.path = new PathBuilder(5)
-      .withCategory(9)
-      .withDifficulty("easy")
-      .withType("multiple")
-      .build().getPath()
-    }
-  }
+    go() {      
+      this.loading = true;
+      this.$http.get(this.path.getPath()).then(
+        (response) => {
+          this.$store.commit("SAVE", response.body.results);
+          // TODO: Add loading animation
+          this.$router.push("/game");
+          this.loading = false;
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+    },
+  },
 };
 </script>
 

@@ -1,7 +1,14 @@
 <template>
-  <div>
-    <router-link to="/categories" tag="button">Play</router-link> |
-    <router-link to="/about" tag="button">About</router-link>
+  <div class="columns buttons are-medium">
+    <div class="column is-one-third flex-center">
+      <router-link class="button is-success is-rounded" to="/categories" tag="button">Play</router-link> 
+    </div>
+    <div class="column is-one-third flex-center">
+      |
+    </div>
+    <div class="column is-one-third flex-center">
+      <router-link class="button is-rounded" to="/about" tag="button">About</router-link>
+    </div>
   </div>
 </template>
 
@@ -11,6 +18,9 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.flex-center {
+  display: flex;
+  justify-content: center;
+}
 </style>
